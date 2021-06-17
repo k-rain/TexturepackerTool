@@ -74,7 +74,7 @@ class TexturePackerTool(object):
         self.btnSelect1.setText(_translate("Dialog", "选择"))
         self.btnSelect2.setText(_translate("Dialog", "选择"))
         self.label_3.setText(_translate(
-            "Dialog", "使用说明：选择或输入路径后点击开始合图"))
+            "Dialog", "使用说明：选择或键入路径后点击开始合图"))
         self.initUi(Dialog)
 
     def initUi(self, Dialog):
@@ -92,12 +92,12 @@ class TexturePackerTool(object):
         outputPath = "G:/DGZ-A/client/branches/develop/assets/resources/dgz_plist/"
         curPath = os.path.abspath('.')
         config = os.path.join(curPath, "config.json")
-        # if os.path.isfile(config):
-        f = open(config, "r")
-        dic = json.load(f)
-        inputPath = dic["inputPath"]
-        outputPath = dic["outputPath"]
-        f.close()
+        if os.path.isfile(config):
+            f = open(config, "r")
+            dic = json.load(f)
+            inputPath = dic["inputPath"]
+            outputPath = dic["outputPath"]
+            f.close()
         self.textEdit1.setPlainText(inputPath)
         self.textEdit2.setPlainText(outputPath)
 
